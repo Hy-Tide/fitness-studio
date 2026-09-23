@@ -13,7 +13,7 @@ export default defineConfig({
       }
     }),
     nitro({
-      preset: process.env.VERCEL ? "vercel" : undefined,
+      ...(process.env['VERCEL'] ? { preset: "vercel" as const } : {}),
     }),
     viteReact(),
     tailwindcss(),
